@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bimestrais</title>
+    <style>
+        body {
+            background: rgb(42, 42, 42);
+            color: rgb(255, 255, 255);
+            font-family: Helvetica;
+            font-size: 20px;
+            padding: 20px;
+        }
+
+        .res {
+            /* text-align: center; */
+            text-align: left;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media(max-width: 600px) {
+            .res {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+        .botao {
+            display: flex;
+            justify-content: center;
+        }
+
+        textarea {
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        button {
+            width: 320px;
+            height: 100px;
+            margin: 0 auto;
+            padding: 0;
+            line-height: 100px;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        /*  */
+    </style>
+</head>
+
+<body>
+    <div>
+        <center>
+            <button onclick="inserir()">Inserir alunos</button>
+            <br><br>
+        </center>
+        <textarea name="" id="names" cols="30" rows="10" placeholder="ALUNOS SEPARADOS POR TURMA E QUEBRA DE LINHA"></textarea>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center>
+        <div>
+            <button onclick="distribuir()">Distribuir entre salas</button>
+            <h1>Distribuição: </h1>
+            <div>
+                <table border="1">
+                    <tr>
+                        <th></th>
+                        <th>9A</th>
+                        <th>9B</th>
+                        <th>1A</th>
+                        <th>1B</th>
+                        <th>2A</th>
+                        <th>2B</th>
+                        <th>3A</th>
+                        <th>3B</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <th>Sala 9A</th>
+                        <td id="a9A9A"></td>
+                        <td id="a9A9B"></td>
+                        <td id="a9A1A"></td>
+                        <td id="a9A1B"></td>
+                        <td id="a9A2A"></td>
+                        <td id="a9A2B"></td>
+                        <td id="a9A3A"></td>
+                        <td id="a9A3B"></td>
+                        <td id="a9A"></td>
+                    </tr>
+                    <tr>
+                        <th>Sala 9B</th>
+                        <td id="a9B9A"></td>
+                        <td id="a9B9B"></td>
+                        <td id="a9B1A"></td>
+                        <td id="a9B1B"></td>
+                        <td id="a9B2A"></td>
+                        <td id="a9B2B"></td>
+                        <td id="a9B3A"></td>
+                        <td id="a9B3B"></td>
+                        <td id="a9B"></td>
+                    </tr>
+                    <tr>
+                        <th>Sala 1A</th>
+                        <td id="a1A9A"></td>
+                        <td id="a1A9B"></td>
+                        <td id="a1A1A"></td>
+                        <td id="a1A1B"></td>
+                        <td id="a1A2A"></td>
+                        <td id="a1A2B"></td>
+                        <td id="a1A3A"></td>
+                        <td id="a1A3B"></td>
+                        <td id="a1A"></td>
+                    </tr>
+                    <tr>
+                        <th>Sala 1B</th>
+                        <td id="a1B9A"></td>
+                        <td id="a1B9B"></td>
+                        <td id="a1B1A"></td>
+                        <td id="a1B1B"></td>
+                        <td id="a1B2A"></td>
+                        <td id="a1B2B"></td>
+                        <td id="a1B3A"></td>
+                        <td id="a1B3B"></td>
+                        <td id="a1B"></td>
+                    </tr>
+                    <tr>
+                        <th>Sala 2A</th>
+                        <td id="a2A9A"></td>
+                        <td id="a2A9B"></td>
+                        <td id="a2A1A"></td>
+                        <td id="a2A1B"></td>
+                        <td id="a2A2A"></td>
+                        <td id="a2A2B"></td>
+                        <td id="a2A3A"></td>
+                        <td id="a2A3B"></td>
+                        <td id="a2A"></td>
+                    </tr>
+                    <tr>
+                        <th>Sala 2B</th>
+                        <td id="a2B9A"></td>
+                        <td id="a2B9B"></td>
+                        <td id="a2B1A"></td>
+                        <td id="a2B1B"></td>
+                        <td id="a2B2A"></td>
+                        <td id="a2B2B"></td>
+                        <td id="a2B3A"></td>
+                        <td id="a2B3B"></td>
+                        <td id="a2B"></td>
+                    </tr>
+                    <tr>
+                        <th>Sala 3A</th>
+                        <td id="a3A9A"></td>
+                        <td id="a3A9B"></td>
+                        <td id="a3A1A"></td>
+                        <td id="a3A1B"></td>
+                        <td id="a3A2A"></td>
+                        <td id="a3A2B"></td>
+                        <td id="a3A3A"></td>
+                        <td id="a3A3B"></td>
+                        <td id="a3A"></td>
+                    </tr>
+                    <tr>
+                        <th>Sala 3B</th>
+                        <td id="a3B9A"></td>
+                        <td id="a3B9B"></td>
+                        <td id="a3B1A"></td>
+                        <td id="a3B1B"></td>
+                        <td id="a3B2A"></td>
+                        <td id="a3B2B"></td>
+                        <td id="a3B3A"></td>
+                        <td id="a3B3B"></td>
+                        <td id="a3B"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="botao">
+        <button onclick="gerar()" class="botao">Gerar nova combinação</button>
+        <button onclick="gerarPDF()" class="botao">Gerar PDF</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="res">
+        <div id="res9A" class="content"></div>
+        <div id="res9B" class="content"></div>
+        <div id="res1A" class="content"></div>
+        <div id="res1B" class="content"></div>
+        <div id="res2A" class="content"></div>
+        <div id="res2B" class="content"></div>
+        <div id="res3A" class="content"></div>
+        <div id="res3B" class="content"></div>
+    </div>
+    <br>
+    <div id="res"></div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
